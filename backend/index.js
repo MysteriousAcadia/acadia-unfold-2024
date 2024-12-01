@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -55,11 +56,21 @@ app.post("/games/:id/start-ai-agent", (req, res) => {
   const game = games.find((g) => g.id === parseInt(req.params.id));
   if (game) {
     // Logic to start AI agent for the game
+    // read from game.moves
+    //Generate move from the API
+    //Write data to contract
+    //Check if another move is required or not
+    //Run for as many times as user instructs/balance is present
     res.send(`AI agent started for game ID: ${game.id}`);
   } else {
     res.status(404).send("Game not found");
   }
 });
+
+// AI Agent integration with smart contracts:
+//1. User makes a smart contract call
+//2. Smart contract makes call to the AI agent registered, waits for a callback.
+//3. Callback completes the user's turn
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
