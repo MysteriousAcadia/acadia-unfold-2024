@@ -8,7 +8,6 @@ import { getGameObject } from "../helpers/getGameObject";
 import { sponsorAndSignTransaction } from "../utils/sponsorAndSignTransaction";
 import { bcs } from "@mysten/sui/bcs";
 
-// Not catching errors on puprose, they will be caught and logged by the corresponding route.ts file
 export const houseHitOrStand = async ({
   gameId,
   move,
@@ -34,7 +33,7 @@ export const houseHitOrStand = async ({
     );
 
     tx.moveCall({
-      target: `${process.env.NEXT_PUBLIC_PACKAGE_ADDRESS}::single_player_blackjack::${move}`,
+      target: `${process.env.SUI_AI_AGENT_PACKAGE}::single_player_blackjack::${move}`,
       arguments: [
         tx.object(gameId),
         tx.pure(bcs.vector(bcs.u8()).serialize(signedHouseHash)),
