@@ -6,7 +6,7 @@ function CreateProject() {
     chain: "",
     abi: "",
     contractAddress: "",
-    callbacks: [{ name: "", inputType: "", outputType: "", prompt: "" }],
+    callbacks: [],
   });
 
   const handleChange = (e) => {
@@ -169,8 +169,17 @@ function CreateProject() {
           onClick={addCallback}
           className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md"
         >
-          Add Callback
+          + Add Callback
         </button>
+        <div className="mt-8">
+          <button
+            type="button"
+            onClick={addCallback}
+            className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md"
+          >
+            Save
+          </button>
+        </div>
       </div>
     </div>
   );
